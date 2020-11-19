@@ -10,6 +10,8 @@ public class TasksApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TasksApplication.class, args);
+
+		System.setProperty("java.runtime.version", "11");
 	}
 
 	@Override
