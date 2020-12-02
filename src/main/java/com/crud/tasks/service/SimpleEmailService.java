@@ -23,12 +23,7 @@ public class SimpleEmailService {
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
 
-        Optional<String> carbonCopy = Optional.ofNullable(mail.getMailTo());
-
-        if (carbonCopy.isPresent()) {
-            System.out.println(mail.getToCc());
-            mailMessage.setCc(mail.getToCc());
-        }
+        Optional.ofNullable(mail.getMailTo()).ifPresent(cc -> mailMessage.setCc(mail.getToCc()));
 
         return mailMessage;
     }
