@@ -16,20 +16,20 @@ public class EmailScheduler {
     private final AdminConfig adminConfig;
     private static final String SUBJECT = "Tasks: Once a day email";
 
-    @Scheduled(fixedDelay = 10000)
-    public void sendInformationEmail() {
-        String taskOrTasks;
-        long size = taskRepository.count();
-        if (size == 1) {
-            taskOrTasks = " task";
-        } else {
-            taskOrTasks = " tasks";
-        }
-        emailService.send(Mail.builder()
-        .mailTo(adminConfig.getAdminMail())
-        .subject(SUBJECT)
-        .message("Currently in database you got: " + size + taskOrTasks)
-        .toCc(null)
-        .build());
-    }
+//    @Scheduled(fixedDelay = 10000)
+//    public void sendInformationEmail() {
+//        String taskOrTasks;
+//        long size = taskRepository.count();
+//        if (size == 1) {
+//            taskOrTasks = " task";
+//        } else {
+//            taskOrTasks = " tasks";
+//        }
+//        emailService.send(Mail.builder()
+//        .mailTo(adminConfig.getAdminMail())
+//        .subject(SUBJECT)
+//        .message("Currently in database you got: " + size + taskOrTasks)
+//        .toCc(null)
+//        .build());
+//    }
 }
