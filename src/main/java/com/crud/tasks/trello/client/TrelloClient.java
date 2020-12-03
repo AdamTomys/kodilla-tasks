@@ -59,7 +59,7 @@ public class TrelloClient {
                 .queryParam("token", trelloConfig.getTrelloToken())
                 .queryParam("name", trelloCardDto.getTaskName())
                 .queryParam("desc", trelloCardDto.getTaskDescription())
-                .queryParam("pos", trelloCardDto.getTaskDisplayPosition())
+//                .queryParam("pos", trelloCardDto.getTaskDisplayPosition())
                 .queryParam("idList", trelloCardDto.getListId())
                 .build()
                 .encode()
