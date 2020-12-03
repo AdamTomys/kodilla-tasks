@@ -31,7 +31,7 @@ public class TrelloService {
                 .mailTo(adminConfig.getAdminMail())
                 .subject(SUBJECT)
                 .message("New card: " + trelloCardDto.getTaskName() + " has been created on Your Trello account")
-//                .toCc("hanf.natalia@gmail.com")
+                .toCc("hanf.natalia@gmail.com")
                 .build()));
 
         return newCard;
