@@ -1,9 +1,9 @@
 package com.crud.tasks.service;
 
-import com.crud.tasks.domain.CreatedTrelloCard;
+import com.crud.tasks.domain.CreatedTrelloCardDto;
 import com.crud.tasks.domain.Mail;
-import com.crud.tasks.domain.TrelloBoardDto;
-import com.crud.tasks.domain.TrelloCardDto;
+import com.crud.tasks.dto.TrelloBoardDto;
+import com.crud.tasks.dto.TrelloCardDto;
 import com.crud.tasks.trello.client.TrelloClient;
 import com.crud.tasks.trello.config.AdminConfig;
 import lombok.RequiredArgsConstructor;
@@ -24,8 +24,8 @@ public class TrelloService {
         return trelloClient.getTrelloBoards();
     }
 
-    public CreatedTrelloCard createTrelloCard(final TrelloCardDto trelloCardDto) {
-        CreatedTrelloCard newCard = trelloClient.createTrelloCard(trelloCardDto);
+    public CreatedTrelloCardDto createTrelloCard(final TrelloCardDto trelloCardDto) {
+        CreatedTrelloCardDto newCard = trelloClient.createTrelloCard(trelloCardDto);
 
         Optional.ofNullable(newCard).ifPresent(card -> emailService.send(Mail.builder()
                 .mailTo(adminConfig.getAdminMail())

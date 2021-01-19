@@ -1,31 +1,26 @@
 package com.crud.tasks.domain;
 
-//import lombok.AllArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-//import lombok.Getter;
-//import lombok.NoArgsConstructor;
-
-@AllArgsConstructor
-//@Getter
-@NoArgsConstructor
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TrelloBoardDto {
+public class CreatedTrelloCardDto {
 
     @JsonProperty("id")
-    private String id;
+    private String taskId;
 
     @JsonProperty("name")
-    private String name;
+    private String taskName;
 
-    @JsonProperty("lists")
-    private List<TrelloListDto> lists;
+    @JsonProperty("shortUrl")
+    private String taskShortUrl;
 
-
+//    @JsonProperty("badges")
+//    private TrelloBadge trelloBadge;
 }
