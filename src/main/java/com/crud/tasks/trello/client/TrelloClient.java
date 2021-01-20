@@ -45,7 +45,7 @@ public class TrelloClient {
                     .orElse(Collections.emptyList())
                     .stream()
                     .filter(board -> Objects.nonNull(board.getId()) && Objects.nonNull(board.getName()))
-                    .filter(board -> board.getName().contains("Kodilla"))
+//                    .filter(board -> board.getName().contains("Kodilla"))
                     .collect(Collectors.toList());
         } catch (RestClientException e) {
             LOGGER.error(e.getMessage(), e);
@@ -59,11 +59,12 @@ public class TrelloClient {
                 .queryParam("token", trelloConfig.getTrelloToken())
                 .queryParam("name", trelloCardDto.getTaskName())
                 .queryParam("desc", trelloCardDto.getTaskDescription())
-//                .queryParam("pos", trelloCardDto.getTaskDisplayPosition())
+                .queryParam("pos", trelloCardDto.getTaskDisplayPosition())
                 .queryParam("idList", trelloCardDto.getListId())
                 .build()
                 .encode()
                 .toUri();
+        System.out.println(uri);
         return restTemplate.postForObject(uri, null, CreatedTrelloCardDto.class);
     }
 }

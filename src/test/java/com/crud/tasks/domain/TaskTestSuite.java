@@ -25,8 +25,9 @@ public class TaskTestSuite {
 
         //Then
         Long id = task.getId();
+        System.out.println(id);
 
         //CleanUp
-        taskRepository.deleteById(id);
+        taskRepository.deleteAll();
     }
 }
