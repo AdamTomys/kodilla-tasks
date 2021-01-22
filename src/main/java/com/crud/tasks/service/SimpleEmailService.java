@@ -23,7 +23,7 @@ public class SimpleEmailService {
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
 
-        Optional.ofNullable(mail.getToCc()).ifPresent(ccString -> mailMessage.setCc(ccString));
+        Optional.ofNullable(mail.getToCc()).ifPresent(mailMessage::setCc);
 
         return mailMessage;
     }
